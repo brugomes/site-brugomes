@@ -8,14 +8,28 @@
         max-width: 1060px;
         height: auto;
         margin: 0 auto;
-        padding: 40px 0;
+        padding: 50px 0;
+
+        @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+            padding: 25px 20px 15px;
+            box-sizing: border-box;
+        }
+
+        @media screen and (min-width: $screen-md-min ) and (max-width: $screen-lg-max ) {
+            padding: 50px 20px 15px;
+            box-sizing: border-box;
+        }
 
         h3 {
             margin-bottom: 40px;
             text-align: center;
             color: #3f3f3f;
-            font-family: $fontsemibold;
+            font-family: $fontbold;
             font-size: 28px;
+
+            @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+                font-size: 24px;
+            }
         }
         
         ul {
@@ -26,19 +40,36 @@
             li {
                 width: 190px;
                 height: 70px;
-                margin: 0 0 15px 0;
+                margin: 0 0 20px 0;
                 border: 1px solid #d93c3c;
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
+                @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+                    width: 47%;
+                }
+
+                @media screen and (min-width: $screen-md-min ) and (max-width: $screen-md-max ) {
+                    width: 31%;
+                }
+
                 span {
                     display: block;
                     color: #d93c3c;
-                    font-family: $fontsemibold;
+                    font-family: $fontbold;
                     font-weight: bold;
                     font-size: 20px;
                     text-align: center;
+                    line-height: 24px;
+
+                    @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+                        font-size: 16px;
+                    }
+
+                    @media screen and (min-width: $screen-md-min ) and (max-width: $screen-md-max ) {
+                        font-size: 18px;
+                    }
                 }
             }
         } 

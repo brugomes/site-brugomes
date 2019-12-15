@@ -34,6 +34,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../../src/fonts/OpenSansBold/OpenSans-Bold.eot');
+    src: url('../../src/fonts/OpenSansBold/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../../src/fonts/OpenSansBold/OpenSans-Bold.woff2') format('woff2'),
+        url('../../src/fonts/OpenSansBold/OpenSans-Bold.woff') format('woff'),
+        url('../../src/fonts/OpenSansBold/OpenSans-Bold.ttf') format('truetype'),
+        url('../../src/fonts/OpenSansBold/OpenSans-Bold.svg#OpenSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
 $fontregular: 'OpenSansRegular';
 $fontlight: 'OpenSansLight';
 $fontsemibold: 'OpenSansSemibold';
+$fontbold: 'OpenSansBold';

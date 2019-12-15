@@ -1,20 +1,47 @@
 .about {
     width: 100%;
     max-width: 1060px;
-    height: 340px;
+    height: auto;
     margin: 0 auto;
+    padding-bottom: 40px;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: $screen-md-min ) and (max-width: $screen-lg-max ) {
+        padding: 0 20px 40px;
+        box-sizing: border-box;
+    }
 
     &__description {
         width: 60%;
         margin-top: 60px;
 
+        @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+            width: 85%;
+            margin-top: 30px;
+            order: 2;
+            text-align: center;
+        }
+
+        @media screen and (min-width: $screen-md-min ) and (max-width: $screen-md-max ) {
+            width: 50%;
+            margin-top: 30px;
+        }
+
         h4 {
             margin-bottom: 10px;
-            font-family: $fontsemibold;
+            font-family: $fontbold;
             font-size: 28px;
             color: #3f3f3f;
+
+            @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+                font-size: 24px;
+            }
         }
     
         p {
@@ -34,6 +61,10 @@
             font-size: 13px;
             color: #fff;
             outline: none;
+
+            @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+                margin-top: 20px;
+            }
         }
     }
 
@@ -45,5 +76,11 @@
         background-size: cover;
         border-radius: 50%;
         border: 8px solid #e3e3e3;
+
+        @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
+            width: 280px;
+            height: 280px;
+            order: 1;
+        }
     }
 }
