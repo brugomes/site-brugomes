@@ -1,0 +1,49 @@
+.about {
+    width: 100%;
+    max-width: 1060px;
+    height: 340px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    &__description {
+        width: 60%;
+        margin-top: 60px;
+
+        h4 {
+            margin-bottom: 10px;
+            font-family: $fontsemibold;
+            font-size: 28px;
+            color: #3f3f3f;
+        }
+    
+        p {
+            font-family: $fontregular;
+            font-size: 14px;
+            line-height: 18px;
+            color: #3f3f3f;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 6px 16px;
+            border: 0;
+            cursor: pointer;
+            background: #eb3f44;
+            font-family: $fontregular;
+            font-size: 13px;
+            color: #fff;
+            outline: none;
+        }
+    }
+
+    &__img {
+        width: 300px;
+        height: 300px;
+        margin-top: -80px;
+        background: url(../img/bruna.jpg) no-repeat center center;
+        background-size: cover;
+        border-radius: 50%;
+        border: 8px solid #e3e3e3;
+    }
+}
