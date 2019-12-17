@@ -6,3 +6,10 @@ $screen-md-max: 1023px;
 $screen-lg-min: 1024px;
 $screen-lg-max: 1199px;
 $screen-xl-min: 1200px;
+
+$color-primary: #eb3f44;
+
+@mixin transition($duration) {
+    -webkit-transition: all $duration ease-in-out 0s;
+    transition: all $duration ease-in-out 0s;
+}

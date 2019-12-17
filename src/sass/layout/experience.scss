@@ -11,4 +11,157 @@
         font-family: $fontbold;
         font-size: 28px;
     }
+
+    > div {
+        @media screen and (min-width: $screen-sm-min) and (max-width: $screen-lg-max) {
+            padding: 0 20px;
+        }
+
+        @media screen and (min-width: $screen-md-min) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__job {
+        color: #3f3f3f;
+
+        @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+            margin-bottom: 23px;
+        }
+
+        @media screen and (min-width: $screen-md-min) and (max-width: $screen-lg-max) {
+            width: 47%;
+            //padding-bottom: 23px;
+        }
+
+        @media screen and (min-width: $screen-xl-min) {
+            width: 48%;
+        }
+
+        &:nth-of-type(1),
+        &:nth-of-type(3),
+        &:nth-of-type(5) {
+            @media screen and (min-width: $screen-md-min) {
+                padding-right: 20px;
+                border-right: 1px solid #c3c3c3;
+            }
+
+            div {
+                @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                    border-top: 3px solid $color-primary;
+                }
+
+                @media screen and (min-width: $screen-md-min) {
+                    border-right: 3px solid $color-primary;
+                }
+
+                &:after {
+                    @media screen and (min-width: $screen-md-min) {
+                        content: '';
+                        width: 24px;
+                        height: 10px;
+                        position: absolute;
+                        top: 20px;
+                        right: -28px;
+                        background: url(../img/icon-job.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+
+        &:nth-of-type(2), 
+        &:nth-of-type(4) {
+            @media screen and (min-width: $screen-md-min) {
+                padding-left: 20px;
+                margin-top: 40px;
+            }
+
+            div {
+                @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                    border-top: 3px solid $color-primary;
+                }
+
+                @media screen and (min-width: $screen-md-min) {
+                    border-left: 3px solid $color-primary;
+                }
+
+                &:before {
+                    @media screen and (min-width: $screen-md-min) {
+                        content: '';
+                        width: 24px;
+                        height: 10px;
+                        position: absolute;
+                        top: 20px;
+                        left: -28px;
+                        background: url(../img/icon-job.png) no-repeat;
+                        background-size: contain;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        &:nth-of-type(5) {
+            @media screen and (min-width: $screen-md-min) {
+                position: relative;
+                margin-top: -90px;
+            }
+        }
+
+        div {
+            position: relative;
+            padding: 22px;
+            background: #f6f6f6;
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+
+            &:after {
+                @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                    content: '';
+                    width: 8px;
+                    height: 28px;
+                    position: absolute;
+                    bottom: -28px;
+                    right: 50%;
+                    background: url(../img/icon-job-mobile.png) no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        &:last-child {
+            div:after {
+                @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+                    content: none;
+                }
+            }
+        } 
+
+        &__title {
+            margin-bottom: 5px;
+            font-family: $fontsemibold;
+            font-size: 16px;
+        }
+
+        &__location-date {
+            font-family: $fontregular;
+            font-size: 14px;
+        }
+
+        &__description {
+            margin: 5px 0 8px;
+            line-height: 18px;
+            font-family: $fontregular;
+            font-size: 13px;
+        }
+
+        &__technology {
+            font-family: $fontsemibold;
+            font-size: 12px;
+            color: $color-primary;
+        }
+    }
 }

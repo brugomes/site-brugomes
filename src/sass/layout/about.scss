@@ -56,14 +56,19 @@
             padding: 6px 16px;
             border: 0;
             cursor: pointer;
-            background: #eb3f44;
+            background: $color-primary;
             font-family: $fontregular;
             font-size: 13px;
             color: #fff;
             outline: none;
+            @include transition(0.3s);
 
             @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
                 margin-top: 20px;
+            }
+
+            &:hover {
+                background: darken($color-primary, 10%);
             }
         }
     }
