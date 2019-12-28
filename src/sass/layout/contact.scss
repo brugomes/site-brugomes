@@ -1,0 +1,47 @@
+.contact {
+    width: 100%;
+    padding: 56px 0;
+    background: $color-primary;
+
+    &__content {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+
+        h4 {
+            color: #fff;
+            font-size: 32px;
+            font-family: $fontbold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        > div {
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                width: 65px;
+                height: 65px;
+                border: 1px solid #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include transition(0.2s);
+
+                .fa-github-square,
+                .fa-linkedin,
+                .fa-instagram {
+                    color: #fff;
+                    font-size: 39px;
+                }
+
+                &:hover {
+                    -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.9);
+                    -moz-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.9);
+                    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.9);
+                }
+            }
+        }
+    }
+}

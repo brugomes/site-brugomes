@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/brugomes/site-brugomes#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2"

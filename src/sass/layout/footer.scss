@@ -1,0 +1,15 @@
+footer {
+    background: #373b42;
+    text-align: center;
+    padding: 15px 0;
+
+    span {
+        font-family: $fontregular;
+        font-size: 11px;
+        color: #fff;
+
+        strong {
+            font-family: $fontbold;
+        }
+    }
+}
