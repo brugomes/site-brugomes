@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="dist/assets/css/index.css">
-    <script src="dist/assets/js/all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/css/index.css">
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/fontawesome.min.js"></script>
+    <script src="dist/js/script.min.js"></script>
     <title>Bruna Gomes - Front End Developer</title>
 </head>
 <body>
 
-    <header>
+    <header id="home">
         <div class="container">
             <div class="menu">
                 <ul>
@@ -24,6 +26,16 @@
 
             <h1>BRUNA GOMES</h1>
             <h2>FRONT-END DEVELOPER</h2>
+        </div>
+
+        <div class="floating-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </header>
 
@@ -40,10 +52,10 @@
             <button type="button">Download CV</button>
         </div>
 
-        <div class="about__img"></div>
+        <div id="about" class="about__img"></div>
     </section>
 
-    <section class="skills">
+    <section id="skills" class="skills">
         <div class="skills__content">
             <h3>Skills</h3>
 
@@ -64,7 +76,7 @@
         </div>
     </section>
 
-    <section class="work-experience">
+    <section id="experience" class="work-experience">
         <h3>Work Experience</h3>
 
         <div>
@@ -132,7 +144,7 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
         <div class="contact__content">
             <h4>Lets talk</h4>
             <div>
