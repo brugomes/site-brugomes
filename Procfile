@@ -1,1 +1,1 @@
-web: ./node_modules/http-server/bin/http-server
+web: ./node_modules/.bin/lite-server -c server.js
