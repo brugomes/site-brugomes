@@ -78,4 +78,3 @@ watch(['src/js/*.js', ], function() {
 });
 
 exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
-exports.deployment = series(html, css, js, copy)
