@@ -22,12 +22,13 @@ function cleanFolder(){
   }
 }
 
-function copy(){
-  return gulp.src(['index.html', 'src/**', '!src/sass/**', '!src/js/**'])
+function html(){
+  return gulp.src(['index.html'])
     .pipe(gulp.dest('dist/'))
+    .pipe(browserSync.stream());
 }
 
-function styles() {
+function css() {
   return gulp.src('src/sass/index.scss')
     .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('dist/css'))
@@ -35,22 +36,28 @@ function styles() {
 }
 
 function js() {
-    var fontawesome =  gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.min.js')
-      .pipe(rename("fontawesome.min.js"))
-      .pipe(gulp.dest('dist/js'));
-
-    var jquery =  gulp.src('node_modules/jquery/dist/jquery.min.js')
-      .pipe(gulp.dest('dist/js'));
-
-    var script =  gulp.src('src/js/*.js')
+    return gulp.src('src/js/*.js')
       .pipe(rename("script.min.js"))
       .pipe(uglify())
-      .pipe(gulp.dest('dist/js'));
-
-    return merge(fontawesome, jquery, script);
+      .pipe(gulp.dest('dist/js'))
+      .pipe(browserSync.stream());
 }
 
-function startBrowser(){
+function copy(){
+  var fontawesome =  gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.min.js')
+    .pipe(rename("fontawesome.min.js"))
+    .pipe(gulp.dest('dist/js'));
+
+  var jquery =  gulp.src('node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('dist/js'));
+
+  var staticFiles = gulp.src(['src/**', '!src/sass/**', '!src/js/**'])
+    .pipe(gulp.dest('dist/'))
+
+  return merge(fontawesome, jquery, staticFiles);
+}
+
+function serve(){
   return browserSync.init({
     server: {
       baseDir: 'dist'
@@ -58,8 +65,16 @@ function startBrowser(){
   });
 }
 
-watch(['src/sass/**/*.scss', ], function() {
-  return styles();
+watch(['index.html', ], function() {
+  return html();
 });
 
-exports.default = series(cleanFolder, parallel(copy, styles, js, startBrowser));
+watch(['src/sass/**/*.scss', ], function() {
+  return css();
+});
+
+watch(['src/js/*.js', ], function() {
+  return js();
+});
+
+exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
