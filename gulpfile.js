@@ -77,5 +77,6 @@ watch(['src/js/*.js', ], function() {
   return js();
 });
 
-exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
+exports.default = series(cleanFolder, parallel(html, css, js, copy));
+//exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
 //exports.deployment = series(cleanFolder, parallel(html, css, js, copy));
