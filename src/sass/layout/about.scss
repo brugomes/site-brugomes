@@ -47,20 +47,20 @@
         p {
             font-family: $fontregular;
             font-size: 14px;
-            line-height: 18px;
+            line-height: 22px;
             color: #3f3f3f;
+            margin-bottom: 6px;
         }
 
-        button {
+        a {
+            display: inline-block;
             margin-top: 10px;
-            padding: 6px 16px;
-            border: 0;
-            cursor: pointer;
+            padding: 10px 16px;
             background: $color-primary;
             font-family: $fontregular;
             font-size: 13px;
             color: #fff;
-            outline: none;
+            text-decoration: none;
             @include transition(0.3s);
 
             @media screen and (min-width: $screen-sm-min ) and (max-width: $screen-sm-max ) {
