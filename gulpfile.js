@@ -69,7 +69,7 @@ function copy(){
 function serve(){
   return connect.server({
     root: 'dist',
-    port: process.env.PORT || 5000,
+    port: process.env.PORT || 5000 || '0.0.0.0',
     livereload: false
   });
 }
