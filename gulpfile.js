@@ -63,6 +63,7 @@ function serve(){
     server: {
       baseDir: 'dist',
       port: process.env.PORT || 3000,
+      host: '0.0.0.0',
       open: false
     }
   });
