@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean'),
-    fs = require('fs');
+    fs = require('fs'),
+    connect = require('gulp-connect');
 
 function cleanFolder(){
   try {
@@ -57,11 +58,19 @@ function copy(){
   return merge(fontawesome, jquery, staticFiles);
 }
 
+// function serve(){
+//   return browserSync.init({
+//     server: {
+//       baseDir: 'dist'
+//     }
+//   });
+// }
+
 function serve(){
-  return browserSync.init({
-    server: {
-      baseDir: 'dist'
-    }
+  return connect.server({
+    root: 'dist',
+    port: process.env.PORT || 5000,
+    livereload: false
   });
 }
 
@@ -77,6 +86,6 @@ watch(['src/js/*.js', ], function() {
   return js();
 });
 
-exports.default = series(cleanFolder, parallel(html, css, js, copy));
+exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
 //exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
 //exports.deployment = series(cleanFolder, parallel(html, css, js, copy));
