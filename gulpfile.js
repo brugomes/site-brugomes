@@ -58,21 +58,23 @@ function copy(){
   return merge(fontawesome, jquery, staticFiles);
 }
 
-// function serve(){
-//   return browserSync.init({
-//     server: {
-//       baseDir: 'dist'
-//     }
-//   });
-// }
-
 function serve(){
-  return connect.server({
-    root: 'dist',
-    port: process.env.PORT || 3000 || '0.0.0.0',
-    livereload: false
+  return browserSync.init({
+    server: {
+      baseDir: 'dist',
+      port: process.env.PORT || 3000,
+      open: false
+    }
   });
 }
+
+// function serve(){
+//   return connect.server({
+//     root: 'dist',
+//     port: process.env.PORT || 3000 || '0.0.0.0',
+//     livereload: false
+//   });
+// }
 
 watch(['index.html', ], function() {
   return html();
