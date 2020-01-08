@@ -2,11 +2,11 @@ const { series, parallel, watch } = require('gulp');
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    browserSync = require('browser-sync').create(),
-    merge = require('merge-stream'),
+    connect = require('gulp-connect'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean'),
+    merge = require('merge-stream'),
     fs = require('fs');
 
 function cleanFolder(){
@@ -25,14 +25,14 @@ function cleanFolder(){
 function html(){
   return gulp.src(['index.html'])
     .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.stream());
+    .pipe(connect.reload());
 }
 
 function css() {
   return gulp.src('src/sass/index.scss')
     .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('dist/css'))
-    .pipe(browserSync.stream());
+    .pipe(connect.reload());
 }
 
 function js() {
@@ -40,7 +40,7 @@ function js() {
       .pipe(rename("script.min.js"))
       .pipe(uglify())
       .pipe(gulp.dest('dist/js'))
-      .pipe(browserSync.stream());
+      .pipe(connect.reload());
 }
 
 function copy(){
@@ -58,10 +58,11 @@ function copy(){
 }
 
 function serve(){
-  return browserSync.init({
-    server: {
-      baseDir: 'dist'
-    }
+  return connect.server({
+    root: 'dist',
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0',
+    livereload: true
   });
 }
 
@@ -78,3 +79,4 @@ watch(['src/js/*.js', ], function() {
 });
 
 exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
+exports.build = parallel(html, css, js, copy, serve);
