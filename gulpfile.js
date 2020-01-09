@@ -51,7 +51,7 @@ function copy(){
   var jquery =  gulp.src('node_modules/jquery/dist/jquery.min.js')
     .pipe(gulp.dest('dist/js'));
 
-  var staticFiles = gulp.src(['src/**', '!src/sass/**', '!src/js/**'])
+  var staticFiles = gulp.src(['favicon.ico', 'src/**', '!src/sass/**', '!src/js/**'])
     .pipe(gulp.dest('dist/'))
 
   return merge(fontawesome, jquery, staticFiles);
