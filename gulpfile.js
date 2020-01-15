@@ -62,7 +62,12 @@ function serve(){
     root: 'dist',
     port: process.env.PORT || 3000,
     host: '0.0.0.0',
-    livereload: false
+    livereload: false,
+    middleware: function() {
+      return [
+        require('connect-gzip').gzip()
+      ];
+    }
   });
 }
 
