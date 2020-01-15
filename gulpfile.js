@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean'),
+    gzip = require('gulp-gzip'),
     merge = require('merge-stream'),
     fs = require('fs');
 
@@ -32,6 +33,7 @@ function css() {
   return gulp.src('src/sass/index.scss')
     .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('dist/css'))
+    .pipe(gzip())
     .pipe(connect.reload());
 }
 
@@ -39,6 +41,7 @@ function js() {
     return gulp.src('src/js/*.js')
       .pipe(rename("script.min.js"))
       .pipe(uglify())
+      .pipe(gzip())
       .pipe(gulp.dest('dist/js'))
       .pipe(connect.reload());
 }
@@ -62,12 +65,7 @@ function serve(){
     root: 'dist',
     port: process.env.PORT || 3000,
     host: '0.0.0.0',
-    livereload: false,
-    middleware: function() {
-      return [
-        require('connect-gzip').gzip()
-      ];
-    }
+    livereload: false
   });
 }
 
