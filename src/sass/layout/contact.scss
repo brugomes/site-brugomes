@@ -29,13 +29,6 @@
                 justify-content: center;
                 @include transition(0.2s);
 
-                .fa-github-square,
-                .fa-linkedin,
-                .fa-instagram {
-                    color: #fff;
-                    font-size: 39px;
-                }
-
                 &:hover {
                     -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.9);
                     -moz-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.9);

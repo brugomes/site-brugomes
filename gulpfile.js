@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
     clean = require('gulp-clean'),
-    gzip = require('gulp-gzip'),
     merge = require('merge-stream'),
     fs = require('fs');
 
@@ -33,7 +32,6 @@ function css() {
   return gulp.src('src/sass/index.scss')
     .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest('dist/css'))
-    .pipe(gzip())
     .pipe(connect.reload());
 }
 
@@ -41,23 +39,19 @@ function js() {
     return gulp.src('src/js/*.js')
       .pipe(rename("script.min.js"))
       .pipe(uglify())
-      .pipe(gzip())
       .pipe(gulp.dest('dist/js'))
       .pipe(connect.reload());
 }
 
 function copy(){
-  var fontawesome =  gulp.src('node_modules/@fortawesome/fontawesome-free/js/all.min.js')
-    .pipe(rename("fontawesome.min.js"))
-    .pipe(gulp.dest('dist/js'));
-
   var jquery =  gulp.src('node_modules/jquery/dist/jquery.min.js')
+    .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 
   var staticFiles = gulp.src(['favicon.ico', 'src/**', '!src/sass/**', '!src/js/**'])
     .pipe(gulp.dest('dist/'))
 
-  return merge(fontawesome, jquery, staticFiles);
+  return merge(jquery, staticFiles);
 }
 
 function serve(){
