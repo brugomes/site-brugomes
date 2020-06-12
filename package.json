@@ -20,6 +20,9 @@
     "url": "https://github.com/brugomes/site-brugomes/issues"
   },
   "homepage": "https://github.com/brugomes/site-brugomes#readme",
+  "devDependencies": {
+    "gulp-clean": "^0.4.0"
+  },
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
@@ -27,7 +30,6 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.4.1",
-    "merge-stream": "^2.0.0",
-    "gulp-clean": "^0.4.0"
+    "merge-stream": "^2.0.0"
   }
 }
