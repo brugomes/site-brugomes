@@ -76,4 +76,4 @@ watch(['src/js/*.js', ], function() {
 });
 
 exports.default = series(cleanFolder, parallel(html, css, js, copy, serve));
-exports.build = parallel(html, css, js, copy, serve);
+exports.build = exports.default;
