@@ -5,11 +5,12 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     rename = require("gulp-rename"),
     uglify = require('gulp-uglify'),
-    clean = require('gulp-clean'),
     merge = require('merge-stream'),
     fs = require('fs');
 
 function cleanFolder(){
+  var clean = require('gulp-clean');
+
   try {
       fs.statSync('dist');
       return gulp.src('dist')
