@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "10.15.3",
-    "npm": "6.4.1"
+    "node": "12.x",
+    "npm": "6.x"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,6 @@
     "url": "https://github.com/brugomes/site-brugomes/issues"
   },
   "homepage": "https://github.com/brugomes/site-brugomes#readme",
-  "devDependencies": {
-    "gulp-clean": "^0.4.0"
-  },
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
@@ -31,5 +28,8 @@
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.4.1",
     "merge-stream": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp-clean": "^0.4.0"
   }
 }
